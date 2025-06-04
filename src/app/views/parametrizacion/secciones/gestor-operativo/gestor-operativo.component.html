@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="guardarGes()">
+  <br>
+  <div class="card shadow-sm border mb-4">
+    <div
+      class="card-header text-white fw-bold"
+      style="background-color: #198754"
+    >
+      Bonificación
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label class="form-label">Variable base de bonificación</label>
+        <input
+        type="text"
+        class="form-control"
+        formControlName="ges_bonif"
+        placeholder="$"
+        mask="separator"
+        thousandSeparator="."
+        prefix="$ "
+        [dropSpecialCharacters]="true"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="card shadow-sm border mb-4">
+    <div class="card-header text-white fw-bold" style="background-color: #198754">
+      Meta por agencia
+    </div>
+    <div class="card-body">
+      <div class="row align-items-end">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Seleccionar agencia</label>
+          <select class="form-select" formControlName="agenciaSeleccionada" (change)="onAgenciaChange()">
+            <option value="" disabled selected hidden>Seleccione...</option>
+            <option *ngFor="let ag of agencias" [value]="ag">{{ ag }}</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Meta de captación</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="metaCaptacionTemp"
+            placeholder="$"
+            mask="separator"
+            thousandSeparator="."
+            prefix="$ "
+            [dropSpecialCharacters]="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </form>

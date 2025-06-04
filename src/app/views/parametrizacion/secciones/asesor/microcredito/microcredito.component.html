@@ -1,0 +1,95 @@
+<form [formGroup]="form" (ngSubmit)="guardarAsMic()">
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header text-white fw-bold" style="background-color: #198754">Junior</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label">Meta de colocación</label>
+            <input type="text" class="form-control" formControlName="meta_junior" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Llave mínima (%)</label>
+            <input type="text" class="form-control" formControlName="llave_junior" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('llave_junior')" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Variable base de bonificación</label>
+            <input type="text" class="form-control" formControlName="bonif_junior" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header text-white fw-bold" style="background-color: #198754">Master</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label">Meta de colocación</label>
+            <input type="text" class="form-control" formControlName="meta_master" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Llave mínima (%)</label>
+            <input type="text" class="form-control" formControlName="llave_master" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('llave_master')" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Variable base de bonificación</label>
+            <input type="text" class="form-control" formControlName="bonif_master" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header text-white fw-bold" style="background-color: #198754">Senior</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label">Meta de colocación</label>
+            <input type="text" class="form-control" formControlName="meta_senior" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Llave mínima (%)</label>
+            <input type="text" class="form-control" formControlName="llave_senior" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('llave_senior')" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Variable base de bonificación</label>
+            <input type="text" class="form-control" formControlName="bonif_senior" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border mb-4">
+    <div class="card-header text-white fw-bold" style="background-color: #198754">
+      Porcentajes Generales
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Colocación</label>
+          <input type="text" class="form-control" formControlName="micro_colocacion" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('micro_colocacion')" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Mora total <= 8%</label>
+          <input type="text" class="form-control" formControlName="micro_mora_total" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('micro_mora_total')" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Mora mayor a 30 días <= 4%</label>
+          <input type="text" class="form-control" formControlName="micro_mora_treinta" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('micro_mora_treinta')" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Aportes (6'500.000)</label>
+          <input type="text" class="form-control" formControlName="micro_aporte" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('micro_aporte')" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Rodamiento de cartera en A</label>
+          <input type="text" class="form-control" formControlName="micro_rodamiento" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('micro_rodamiento')" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Guardar</button>
+</form>

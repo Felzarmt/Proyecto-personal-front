@@ -1,0 +1,73 @@
+<form [formGroup]="form" (ngSubmit)="guardarGerOf()">
+  <div class="card shadow-sm border mb-4">
+    <div class="card-header text-white fw-bold" style="background-color: #198754">
+      Categoría de bonificación
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Seleccionar categoría</label>
+          <select class="form-select" formControlName="categoriaSeleccionada" (change)="onCategoriaChange()">
+            <option value="" disabled selected hidden>Seleccione...</option>
+            <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div *ngIf="categoriaSeleccionada">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Variable comisión 100%</label>
+            <input type="text" class="form-control" formControlName="variableComision" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Adicional cumplimiento excedente</label>
+            <input type="text" class="form-control" formControlName="adicionalExcedente" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border mb-4">
+    <div class="card-header text-white fw-bold" style="background-color: #198754">
+      Porcentajes Generales
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cartera total <= 8%</label>
+          <input type="text" class="form-control" formControlName="of_mcart_tot" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('of_mcart_tot')" />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cartera mayor a 30 días <= 4%</label>
+          <input type="text" class="form-control" formControlName="of_mcart_may" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('of_mcart_may')" />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Aportes</label>
+          <input type="text" class="form-control" formControlName="of_aport" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('of_aport')" />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Acumulado de captación</label>
+          <input type="text" class="form-control" formControlName="of_accapt" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('of_accapt')" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Acumulado de cartera</label>
+          <input type="text" class="form-control" formControlName="of_accart" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('of_accart')" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Excedentes</label>
+          <input type="text" class="form-control" formControlName="of_exced" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('of_exced')" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Rodamiento</label>
+          <input type="text" class="form-control" formControlName="of_roda" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('of_roda')" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-end mt-3">
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </div>
+</form>

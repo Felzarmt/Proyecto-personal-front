@@ -1,0 +1,138 @@
+<form [formGroup]="form" (ngSubmit)="guardarDirCom()">
+  <div class="card shadow-sm border mb-4">
+    <div
+      class="card-header text-white fw-bold"
+      style="background-color: #198754"
+    >
+      Bonificación
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label class="form-label">Variable base de bonificación</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="dir_bonif"
+          placeholder="$"
+          mask="separator"
+          thousandSeparator="."
+          prefix="$ "
+          [dropSpecialCharacters]="true"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border mb-4">
+    <div
+      class="card-header text-white fw-bold"
+      style="background-color: #198754"
+    >
+      Porcentajes Generales
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Mora de cartera < 4%</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dir_mcart"
+            placeholder="%"
+            mask="separator.0"
+            suffix="%"
+            [dropSpecialCharacters]="true"
+            [thousandSeparator]="''"
+            (input)="validarPorcentaje('dir_mcart')"
+          />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Mora de cartera total <= 8%</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dir_mcart_tot"
+            placeholder="%"
+            mask="separator.0"
+            suffix="%"
+            [dropSpecialCharacters]="true"
+            [thousandSeparator]="''"
+            (input)="validarPorcentaje('dir_mcart_tot')"
+          />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cumplimiento de captación</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dir_capt"
+            placeholder="%"
+            mask="separator.0"
+            suffix="%"
+            [dropSpecialCharacters]="true"
+            [thousandSeparator]="''"
+            (input)="validarPorcentaje('dir_capt')"
+          />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cumplimiento de aportes</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dir_aport"
+            placeholder="%"
+            mask="separator.0"
+            suffix="%"
+            [dropSpecialCharacters]="true"
+            [thousandSeparator]="''"
+            (input)="validarPorcentaje('dir_aport')"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Cumplimiento de cartera</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dir_cart"
+            placeholder="%"
+            mask="separator.0"
+            suffix="%"
+            [dropSpecialCharacters]="true"
+            [thousandSeparator]="''"
+            (input)="validarPorcentaje('dir_cart')"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Excedentes</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dir_exced"
+            placeholder="%"
+            mask="separator.0"
+            suffix="%"
+            [dropSpecialCharacters]="true"
+            [thousandSeparator]="''"
+            (input)="validarPorcentaje('dir_exced')"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Rodamiento</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="dir_roda"
+            placeholder="%"
+            mask="separator.0"
+            suffix="%"
+            [dropSpecialCharacters]="true"
+            [thousandSeparator]="''"
+            (input)="validarPorcentaje('dir_roda')"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Guardar</button>
+</form>
