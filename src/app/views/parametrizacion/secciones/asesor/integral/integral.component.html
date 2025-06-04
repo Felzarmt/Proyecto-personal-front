@@ -1,0 +1,90 @@
+<form [formGroup]="form" (ngSubmit)="guardarAsInt()">
+  <div class="card shadow-sm border mb-4">
+    <div class="card-header text-white fw-bold" style="background-color: #198754">
+      General
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="mb-3">
+          <label class="form-label">Variable base de bonificación</label>
+          <input type="text" class="form-control" formControlName="bonif_int" placeholder="$" mask="separator" thousandSeparator="." prefix="$ " [dropSpecialCharacters]="true" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Porcentajes Interno + Externo lado a lado -->
+  <div class="row">
+    <!-- Interno -->
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header text-white fw-bold" style="background-color: #198754">
+          Porcentajes Interno
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label">Colocación</label>
+              <input type="text" class="form-control" formControlName="int_colocacion" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_colocacion')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Captación</label>
+              <input type="text" class="form-control" formControlName="int_captacion" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_captacion')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Mora total <= 8%</label>
+              <input type="text" class="form-control" formControlName="int_mora_total" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_mora_total')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Mora > 30 días <= 4%</label>
+              <input type="text" class="form-control" formControlName="int_mora_mayor_treinta" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_mora_mayor_treinta')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Aportes</label>
+              <input type="text" class="form-control" formControlName="int_aporte" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_aporte')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Rodamiento cartera en A</label>
+              <input type="text" class="form-control" formControlName="int_rodamiento" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_rodamiento')" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Externo -->
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-header text-white fw-bold" style="background-color: #198754">
+          Porcentajes Externo
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label">Colocación</label>
+              <input type="text" class="form-control" formControlName="int_colocacion_e" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_colocacion_e')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Mora total <= 8%</label>
+              <input type="text" class="form-control" formControlName="int_mora_total_e" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_mora_total_e')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Mora > 30 días <= 4%</label>
+              <input type="text" class="form-control" formControlName="int_mora_mayor_treinta_e" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_mora_mayor_treinta_e')" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">Aportes</label>
+              <input type="text" class="form-control" formControlName="int_aporte_e" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_aporte_e')" />
+            </div>
+            <div class="col-12 mb-3">
+              <label class="form-label">Rodamiento cartera en A</label>
+              <input type="text" class="form-control" formControlName="int_rodamiento_e" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('int_rodamiento_e')" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Guardar</button>
+</form>

@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="guardarGerZon()">
+  <div class="card shadow-sm border mb-4">
+    <div
+      class="card-header text-white fw-bold"
+      style="background-color: #198754"
+    >
+      Bonificación
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label class="form-label">Variable base de bonificación</label>
+        <input
+        type="text"
+        class="form-control"
+        formControlName="zon_bonif"
+        placeholder="$"
+        mask="separator"
+        thousandSeparator="."
+        prefix="$ "
+        [dropSpecialCharacters]="true"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="card shadow-sm border mb-4">
+    <div class="card-header text-white fw-bold" style="background-color: #198754">
+      Porcentajes Generales
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cartera < 4% </label>
+          <input type="text" class="form-control" formControlName="zon_mcart" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('zon_mcart')" />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cartera total <=8%</label>
+          <input type="text" class="form-control" formControlName="zon_mcart_tot" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('zon_mcart_tot')" />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cumplimiento de captación</label>
+          <input type="text" class="form-control" formControlName="zon_capt" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('zon_capt')" />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label class="form-label">Cumplimiento de aportes</label>
+          <input type="text" class="form-control" formControlName="zon_aport" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('zon_aport')" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Rodamiento</label>
+          <input type="text" class="form-control" formControlName="zon_roda" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('zon_roda')" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Excedentes</label>
+          <input type="text" class="form-control" formControlName="zon_exced" placeholder="%" mask="separator.0" suffix="%" [dropSpecialCharacters]="true" [thousandSeparator]="''" (input)="validarPorcentaje('zon_exced')" />
+        </div>
+      </div>
+    </div>
+  </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </form>

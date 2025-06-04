@@ -1,0 +1,6 @@
+<div class="d-flex vh-100">
+    <app-sidebar (collapsed)="onSidebarCollapsed($event)"></app-sidebar>
+    <div class="flex-grow-1 p-3 overflow-auto" [class.sidebar-collapsed]="isSidebarCollapsed">
+      <router-outlet></router-outlet>
+    </div>
+</div>
